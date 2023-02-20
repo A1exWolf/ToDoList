@@ -2,7 +2,8 @@
 const form = document.querySelector('#form');
 const taskInput = document.querySelector('#taskInput');
 const taskList = document.querySelector('#tasksList');
-const emptyList = document.querySelector('#emptyList');
+const delTask = document.querySelector('#deltasksList')
+// const emptyList = document.querySelector('#emptyList');
 
 let tasks = [];
 
