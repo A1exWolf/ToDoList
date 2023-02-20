@@ -1,8 +1,11 @@
 // Search element
 const form = document.querySelector('#form');
 const taskInput = document.querySelector('#taskInput');
-const taskList = document.querySelector('#tasksList');
-const delTask = document.querySelector('#deltasksList')
+const taskList = document.querySelector('#tasksList'); // Список имеющ
+const delTask = document.querySelector('#deltasksList') // Список уд
+const btnDel = document.querySelector('#del'); // Кнопка Удален зад
+const btnAct = document.querySelector('#act'); // Актив зад
+const formEd = document.querySelector('#formEd'); // Форма добавления
 // const emptyList = document.querySelector('#emptyList');
 
 let tasks = [];
@@ -28,7 +31,17 @@ form.addEventListener('submit', addTask);
 taskList.addEventListener('click', deleteTask);
 //Mark a task as completed
 taskList.addEventListener('click', doneTask);
-
+// Добавляем события переключения между списками.
+btnDel.addEventListener('click', ()=> {
+    delTask.classList.remove('none');
+    taskList.classList.add('none');
+    formEd.classList.add('none');
+})
+btnAct.addEventListener('click', ()=> {
+    delTask.classList.add('none');
+    taskList.classList.remove('none');
+    formEd.classList.remove('none');
+})
 
 
 
