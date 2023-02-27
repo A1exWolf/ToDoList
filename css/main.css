@@ -96,25 +96,27 @@ body {
   /* right: 0; */
 }
 
-.tab {
-    display: flex;
-    justify-content: center;
+
+.btn-top{
+  border-radius: 5px;
+  margin-top: 15px;
+  background: #fff;
+  width: 100%;
+  padding: 5px 10px;
+  display: flex;
+  justify-content:center;
+}
+
+.btn-top button {
+  margin-left: 15px;
+}
+
+.btn-top button:first-child {
+  margin-left: 0px;
 }
 
 
-.but-tab {
-    margin-top: 0.3rem;
-}
-
-.but-tab:first-child {
-    margin-right: 0.3rem;
-}
-
-.but-tab:hover {
-    color: #fff;
-    background: #0062cc ;
-}
-
-.but-tab:active {
-    border: none;
+.step {
+  border: none;
+outline: none;
 }

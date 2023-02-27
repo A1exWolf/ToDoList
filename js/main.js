@@ -1,12 +1,15 @@
 // Search element
 const form = document.querySelector('#form');
 const taskInput = document.querySelector('#taskInput');
-const taskList = document.querySelector('#tasksList'); // Список имеющ
-const delTask = document.querySelector('#deltasksList') // Список уд
-const btnDel = document.querySelector('#del'); // Кнопка Удален зад
-const btnAct = document.querySelector('#act'); // Актив зад
-const formEd = document.querySelector('#formEd'); // Форма добавления
-// const emptyList = document.querySelector('#emptyList');
+const taskList = document.querySelector('#tasksList');
+const emptyList = document.querySelector('#emptyList');
+// 3 кнопки all Active Completed
+const allBut = document.querySelector('#all');
+const activeBut = document.querySelector('#noComplite');
+const completedBut = document.querySelector('#complite');
+
+
+
 
 let tasks = [];
 
@@ -20,6 +23,49 @@ if (localStorage.getItem('tasks')){
 checkEmptyList();
 
 
+// Показываю все элементы
+allBut.addEventListener('click', ()=> {
+    const deLi = document.querySelectorAll('li');
+    deLi.forEach((item)=> {
+        item.remove()
+    })
+    if (localStorage.getItem('tasks')){
+        tasks = JSON.parse(localStorage.getItem('tasks'))
+        tasks.forEach( (task) => renderTask(task))}
+})
+
+// Показываю Active элементы
+activeBut.addEventListener('click', ()=> {
+    const deLi = document.querySelectorAll('li');
+    deLi.forEach((item)=> {
+        item.remove()
+    })
+    if (localStorage.getItem('tasks')){
+        tasks = JSON.parse(localStorage.getItem('tasks'))
+        tasks.forEach( (task) => {
+            if (task.done === false){
+                renderTask(task)
+            }
+    }
+)}
+})
+
+// Показываю выполненые элементы
+completedBut.addEventListener('click', ()=> {
+    const deLi = document.querySelectorAll('li');
+    deLi.forEach((item)=> {
+        item.remove()
+    })
+    if (localStorage.getItem('tasks')){
+        tasks = JSON.parse(localStorage.getItem('tasks'))
+        tasks.forEach( (task) => {
+            if (task.done === true){
+                renderTask(task)
+            }
+    }
+)}
+})
+
 
 // if (localStorage.getItem('tasksHTML')){
 //     taskList.innerHTML = localStorage.getItem('tasksHTML');
@@ -31,21 +77,6 @@ form.addEventListener('submit', addTask);
 taskList.addEventListener('click', deleteTask);
 //Mark a task as completed
 taskList.addEventListener('click', doneTask);
-// Добавляем события переключения между списками.
-btnDel.addEventListener('click', ()=> {
-    delTask.classList.remove('none');
-    taskList.classList.add('none');
-    formEd.classList.add('none');
-})
-btnAct.addEventListener('click', ()=> {
-    delTask.classList.add('none');
-    taskList.classList.remove('none');
-    formEd.classList.remove('none');
-})
-
-
-
-
 
 
 
