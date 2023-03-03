@@ -25,8 +25,8 @@ checkEmptyList();
 
 // Показываю все элементы
 allBut.addEventListener('click', ()=> {
-    const deLi = document.querySelectorAll('li');
-    deLi.forEach((item)=> {
+    const deleteTagLi = document.querySelectorAll('li');
+    deleteTagLi.forEach((item)=> {
         item.remove()
     })
     if (localStorage.getItem('tasks')){
@@ -36,8 +36,8 @@ allBut.addEventListener('click', ()=> {
 
 // Показываю Active элементы
 activeBut.addEventListener('click', ()=> {
-    const deLi = document.querySelectorAll('li');
-    deLi.forEach((item)=> {
+    const deleteTagLi = document.querySelectorAll('li');
+    deleteTagLi.forEach((item)=> {
         item.remove()
     })
     if (localStorage.getItem('tasks')){
@@ -52,8 +52,8 @@ activeBut.addEventListener('click', ()=> {
 
 // Показываю выполненые элементы
 completedBut.addEventListener('click', ()=> {
-    const deLi = document.querySelectorAll('li');
-    deLi.forEach((item)=> {
+    const deleteTagLi = document.querySelectorAll('li');
+    deleteTagLi.forEach((item)=> {
         item.remove()
     })
     if (localStorage.getItem('tasks')){
