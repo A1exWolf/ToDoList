@@ -113,9 +113,9 @@ function addTask(event) {
 function deleteTask(event){ // css pointer-event: none
     if (event.target.dataset.action !== 'delete') return;
 
-    const parenNOde = event.target.closest('.list-group-item');
+    const parentNode = event.target.closest('.list-group-item');
 
-    const id = +parenNOde.id;
+    const id = +parentNode.id;
 
    const index = tasks.findIndex(function (task) {
         return task.id === id
@@ -126,7 +126,7 @@ function deleteTask(event){ // css pointer-event: none
     tasks.splice(index, 1);
 
     // Удаляем из разметки
-    parenNOde.remove();
+    parentNode.remove();
 
     checkEmptyList()
 
